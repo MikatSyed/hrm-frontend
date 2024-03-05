@@ -1,4 +1,6 @@
 export const tagTypes = {
     user: "user",
-    attendance: "attendance"
+    attendance: "attendance",
+    department: "department",
+    designation: "designation"
 }

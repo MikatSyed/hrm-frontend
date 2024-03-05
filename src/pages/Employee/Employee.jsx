@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { FaPlus, FaEdit, FaTrash } from "react-icons/fa";
 import AddEmployee from "./AddEmployee";
-import Pagination from "../Setting/Department/Pagination";
 import { useUsersQuery } from "../../redux/api/userApi";
+import Pagination from "../../components/UI/Pagination/Pagination";
 
 const Employee = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -87,47 +87,47 @@ const Employee = () => {
 
             <div className="mt-6 overflow-x-auto">
               <table className="w-full table-auto  ">
-                <thead className="text-sm font-medium text-gray-500 bg-gray-100">
+                <thead className="text-sm font-medium text-white bg-purple-600">
                   <tr>
                     <th
                       scope="col"
-                      className="py-3.5 px-4 text-sm font-large text-left rtl:text-right text-gray-500 border"
+                      className="py-3.5 px-4 text-sm font-large text-left rtl:text-right  border"
                     >
                       Employee name
                     </th>
                     <th
                       scope="col"
-                      className="px-4 py-3.5 text-sm font-large text-left rtl:text-right text-gray-500 border"
+                      className="px-4 py-3.5 text-sm font-large text-left rtl:text-right  border"
                     >
-                      EMPID
+                      Employee Id
                     </th>
                     <th
                       scope="col"
-                      className="px-4 py-3.5 text-sm font-large text-left rtl:text-right text-gray-500 border"
+                      className="px-4 py-3.5 text-sm font-large text-left rtl:text-right  border"
                     >
                       Email
                     </th>
                     <th
                       scope="col"
-                      className="px-4 py-3.5 text-sm font-large text-left rtl:text-right text-gray-500 border"
+                      className="px-4 py-3.5 text-sm font-large text-left rtl:text-right  border"
                     >
                       Contact
                     </th>
                     <th
                       scope="col"
-                      className="px-4 py-3.5 text-sm font-large text-left rtl:text-right text-gray-500 border "
+                      className="px-4 py-3.5 text-sm font-large text-left rtl:text-right  border "
                     >
                       Role
                     </th>
                     <th
                       scope="col"
-                      className="px-4 py-3.5 text-sm font-large text-left rtl:text-right text-gray-500 border"
+                      className="px-4 py-3.5 text-sm font-large text-left rtl:text-right  border"
                     >
                       Action
                     </th>
                   </tr>
                 </thead>
-                <tbody className="text-sm text-black font-medium bg-white divide-y divide-gray-200">
+                <tbody className="text-sm text-black  bg-white divide-y divide-gray-200">
                   {filteredData?.map((user, index) => (
                     <tr
                       key={user.id}

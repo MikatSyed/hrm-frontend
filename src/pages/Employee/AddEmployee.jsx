@@ -3,7 +3,8 @@ import Modal from "react-modal";
 import { RiCloseLine } from "react-icons/ri";
 import FormInput from "../../components/UI/FormInput/FormInput";
 import Form from "../../components/UI/Forms/Form";
-
+import { TiTick } from "react-icons/ti";
+import { useSignupMutation } from "../../redux/api/authApi";
 const customStyles = {
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -12,9 +13,9 @@ const customStyles = {
     top: "50%",
     left: "57%",
     transform: "translate(-50%, -50%)",
-    maxWidth: "1000px",
+    maxWidth: "80%",
     width: "90%",
-    maxHeight: "100%",
+    maxHeight: "95%",
     overflow: "auto",
     boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)",
     borderRadius: "12px",
@@ -30,19 +31,25 @@ const customStyles = {
   },
 };
 const AddEmployee = ({ isOpen, onClose }) => {
+  const [signup] = useSignupMutation();
   const onSubmit = async (values) => {
-    console.log(values);
+    const obj = { ...values };
+    console.log(obj, "37");
     try {
-      //   const res = await AddEmployee(obj).unwrap();
-      //   toast(res?.message, {
-      //     icon: <span style={{ color: "white" }}>✔</span>,
-      //     style: {
-      //       borderRadius: "10px",
-      //       background: "#22c55e",
-      //       color: "#fff",
-      //     },
-      //     duration: 2000,
-      //   });
+      // const res = await signup(obj).unwrap();
+      // toast(res?.message, {
+      //   icon: (
+      //     <span style={{ color: "white" }}>
+      //       <TiTick />
+      //     </span>
+      //   ),
+      //   style: {
+      //     borderRadius: "10px",
+      //     background: "#22c55e",
+      //     color: "#fff",
+      //   },
+      //   duration: 2000,
+      // });
       onClose();
     } catch (err) {
       console.log(err);

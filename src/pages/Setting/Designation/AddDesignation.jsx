@@ -3,7 +3,9 @@ import Modal from "react-modal";
 import { RiCloseLine } from "react-icons/ri";
 import Form from "../../../components/UI/Forms/Form";
 import FormInput from "../../../components/UI/FormInput/FormInput";
-
+import { useAddDesignationMutation } from "../../../redux/api/designationApi";
+import toast, { Toaster } from "react-hot-toast";
+import { TiTick } from "react-icons/ti";
 const customStyles = {
   overlay: {
     backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -28,19 +30,26 @@ const customStyles = {
 };
 
 const AddDesignation = ({ isOpen, onClose }) => {
+  const [addDesignation] = useAddDesignationMutation();
   const onSubmit = async (values) => {
     console.log(values);
     try {
-      //   const res = await AddEmployee(obj).unwrap();
-      //   toast(res?.message, {
-      //     icon: <span style={{ color: "white" }}>✔</span>,
-      //     style: {
-      //       borderRadius: "10px",
-      //       background: "#22c55e",
-      //       color: "#fff",
-      //     },
-      //     duration: 2000,
-      //   });
+      const res = await addDesignation(values).unwrap();
+      if (res?.id) {
+        toast("Designation Created Sucessfully", {
+          icon: (
+            <span style={{ color: "white" }}>
+              <TiTick />
+            </span>
+          ),
+          style: {
+            borderRadius: "10px",
+            background: "#9333ea",
+            color: "#fff",
+          },
+          duration: 3000,
+        });
+      }
       onClose();
     } catch (err) {
       console.log(err);
@@ -48,47 +57,50 @@ const AddDesignation = ({ isOpen, onClose }) => {
   };
 
   return (
-    <Modal
-      isOpen={isOpen}
-      onRequestClose={onClose}
-      style={customStyles}
-      contentLabel="Add Designation Modal"
-    >
-      <div className="bg-white p-6 rounded-lg">
-        <div style={customStyles.closeIcon} onClick={onClose}>
-          <RiCloseLine size={24} />
-        </div>
-        <h2 className="text-xl font-semibold mb-4">Add Designation</h2>
-        <div className="border-b-2 border-gray-200 mb-4"></div>
-        <Form submitHandler={onSubmit}>
-          <div className="mb-4">
-            <FormInput
-              type="text"
-              label="Designation Name"
-              name="designationName"
-              className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-purple-600"
-              placeholder="Designation name"
-            />
+    <>
+      <Toaster position="top-right" reverseOrder={false} />
+      <Modal
+        isOpen={isOpen}
+        onRequestClose={onClose}
+        style={customStyles}
+        contentLabel="Add Designation Modal"
+      >
+        <div className="bg-white p-6 rounded-lg">
+          <div style={customStyles.closeIcon} onClick={onClose}>
+            <RiCloseLine size={24} />
           </div>
+          <h2 className="text-xl font-semibold mb-4">Add Designation</h2>
+          <div className="border-b-2 border-gray-200 mb-4"></div>
+          <Form submitHandler={onSubmit}>
+            <div className="mb-4">
+              <FormInput
+                type="text"
+                label="Designation Name"
+                name="name"
+                className="px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:border-purple-600"
+                placeholder="Designation name"
+              />
+            </div>
 
-          <div className="flex justify-start">
-            <button
-              type="button"
-              onClick={onClose}
-              className="mr-2 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-200 hover:bg-gray-300 rounded-md"
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              className="px-4 py-2 text-sm font-medium text-white  bg-purple-600 hover: bg-purple-700 rounded-md"
-            >
-              Submit
-            </button>
-          </div>
-        </Form>
-      </div>
-    </Modal>
+            <div className="flex justify-start">
+              <button
+                type="button"
+                onClick={onClose}
+                className="mr-2 px-4 py-2 text-sm font-medium text-gray-700 bg-gray-200 hover:bg-gray-300 rounded-md"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                className="px-4 py-2 text-sm font-medium text-white  bg-purple-600 hover: bg-purple-700 rounded-md"
+              >
+                Submit
+              </button>
+            </div>
+          </Form>
+        </div>
+      </Modal>
+    </>
   );
 };
 

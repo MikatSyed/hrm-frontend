@@ -35,7 +35,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="bg-purple-900 bg-gradient-to-b from-gray-900 via-gray-900 to-purple-800 px-[25px] h-100vh">
+    <div className="bg-purple-600  px-[25px] h-100vh">
       <div className="px-[10px] py-[30px] flex items-center justify-center ">
         <img src={logo} alt="logo" />
       </div>
