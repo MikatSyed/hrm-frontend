@@ -29,7 +29,7 @@ const Dashboardview = ({ toggleSidebar }) => {
                     </div>
                     <div className='flex items-center gap-[15px] relative' onClick={showProfile} >
                         <p className='hidden md:block'>Douglas McGee</p>
-                        <div className='h-[50px] w-[50px] rounded-full bg-[#4E73DF] cursor-pointer flex items-center justify-center relative z-40' >
+                        <div className='h-[50px] w-[50px] rounded-full bg-[#4E73DF] cursor-pointer flex items-center justify-center relative ' >
                             <img src={profile} alt="" />
 
                         </div>

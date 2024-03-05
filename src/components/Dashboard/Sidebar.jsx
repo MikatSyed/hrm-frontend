@@ -42,9 +42,7 @@ const Sidebar = () => {
 
       <div
         className={`flex items-center gap-[10px] py-[15px]  cursor-pointer ${
-          activeOption === "dashboard"
-            ? "bg-purple-900 rounded-[10px] pl-2"
-            : ""
+          activeOption === "dashboard" ? "bg-black rounded-lg" : ""
         }`}
         onClick={() => handleOptionClick("dashboard")}
       >
@@ -62,7 +60,7 @@ const Sidebar = () => {
 
       <div
         className={`flex items-center gap-[10px] py-[15px]  cursor-pointer ${
-          activeOption === "employee" ? "bg-purple-900 rounded-[10px] pl-2" : ""
+          activeOption === "employee" ? "bg-black rounded-lg" : ""
         }`}
         onClick={() => handleOptionClick("employee")}
       >

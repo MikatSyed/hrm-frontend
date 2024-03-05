@@ -27,7 +27,7 @@ instance.interceptors.response.use(function (response) {
     // Any status code that lies within the range of 2xx causes this function to trigger
     // Do something with response data
     const responseObject = {
-        data: response?.data,
+        data: response?.data?.data,
         meta: response?.data?.meta,
     };
     return responseObject;

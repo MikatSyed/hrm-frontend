@@ -12,13 +12,23 @@ const authApi = baseApi.injectEndpoints({
       }),
       invalidatesTags:[tagTypes.user]
     }),
-    addEmployee: build.mutation({
+    signup: build.mutation({
       query: (data) => ({
         url : `${AUTH_URL}/signup`,
         method: "POST",
         data
       }),
       invalidatesTags:[tagTypes.user]
+    }),
+    employees: build.query({
+      query: () => {
+        return {
+          url: URL,
+          method: "GET",      
+        };
+      },
+    
+      providesTags: [tagTypes.user],
     }),
   }),
   overrideExisting: false,

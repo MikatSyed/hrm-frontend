@@ -10,16 +10,17 @@ const customStyles = {
   },
   content: {
     top: "50%",
-    left: "50%",
+    left: "57%",
     transform: "translate(-50%, -50%)",
     maxWidth: "1000px",
     width: "90%",
-    maxHeight: "90%",
+    maxHeight: "100%",
     overflow: "auto",
     boxShadow: "0 10px 20px rgba(0, 0, 0, 0.2)",
     borderRadius: "12px",
     border: "none",
     position: "relative",
+    zIndex: -1,
   },
   closeIcon: {
     position: "absolute",
@@ -80,8 +81,8 @@ const AddEmployee = ({ isOpen, onClose }) => {
 
                   <div className="sm:col-span-3">
                     <FormInput
-                      name="fName"
-                      label="First Name"
+                      name="lName"
+                      label="Last Name"
                       placeholder="First Name"
                       className="w-[300px] h-[45px] text-sm px-2 py-3  focus:bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:border-[#012169]"
                     />
@@ -89,8 +90,17 @@ const AddEmployee = ({ isOpen, onClose }) => {
 
                   <div className="sm:col-span-3">
                     <FormInput
-                      name="employmentStatus"
-                      label="Employment Status"
+                      name="email"
+                      label="Email"
+                      placeholder="Email"
+                      className="w-[300px] h-[45px] text-sm px-2 py-3  focus:bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:border-[#012169]"
+                    />
+                  </div>
+
+                  <div className="sm:col-span-3">
+                    <FormInput
+                      name="Gender"
+                      label="Gender"
                       placeholder="Employment Status"
                       className="w-[300px] h-[45px] text-sm px-2 py-3  focus:bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:border-[#012169]"
                     />
@@ -98,8 +108,8 @@ const AddEmployee = ({ isOpen, onClose }) => {
 
                   <div className="sm:col-span-3">
                     <FormInput
-                      name="lengthofEmployment"
-                      label="Length of Employment"
+                      name="dateOfBirth"
+                      label="Date Of Birth"
                       placeholder="Length of Employment"
                       className="w-[300px] h-[45px] text-sm px-2 py-3  focus:bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:border-[#012169]"
                     />
@@ -107,107 +117,62 @@ const AddEmployee = ({ isOpen, onClose }) => {
 
                   <div className="sm:col-span-3">
                     <FormInput
-                      name="monthlyIncome"
-                      label="Monthly Income"
-                      placeholder="Monthly Income"
-                      className="w-[300px] h-[45px] text-sm px-2 py-3  focus:bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:border-[#012169]"
-                    />
-                  </div>
-                  <div className="sm:col-span-3">
-                    <FormInput
-                      name="managerName"
-                      label="Supervisor/Manager Name"
-                      placeholder="Supervisor/Manager Name"
-                      className="w-[300px] h-[45px] text-sm px-2 py-3  focus:bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:border-[#012169]"
-                    />
-                  </div>
-                  <div className="sm:col-span-3">
-                    <FormInput
-                      name="managerContactNumber"
-                      label="Supervisor/Manager Contact Number"
-                      placeholder="Supervisor/Manager Contact Number"
+                      name="blood"
+                      label="Blood Group"
+                      placeholder="Blood Group"
                       className="w-[300px] h-[45px] text-sm px-2 py-3  focus:bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:border-[#012169]"
                     />
                   </div>
 
                   <div className="sm:col-span-3">
                     <FormInput
-                      name="loanName"
-                      label="Loan Name"
-                      placeholder="Loan Name"
-                      className="w-[300px] h-[45px] text-sm px-2 py-3  focus:bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:border-[#012169]"
-                    />
-                  </div>
-                  <div className="sm:col-span-3">
-                    <FormInput
-                      name="loanAmount"
-                      label="Loan Amount"
-                      placeholder="Loan Amount"
-                      className="w-[300px] h-[45px] text-sm px-2 py-3  focus:bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:border-[#012169]"
-                    />
-                  </div>
-                  <div className="sm:col-span-3">
-                    <FormInput
-                      name="reference1Name"
-                      label="Reference 1 Name"
-                      placeholder="Reference 1 Name"
-                      className="w-[300px] h-[45px] text-sm px-2 py-3  focus:bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:border-[#012169]"
-                    />
-                  </div>
-                  <div className="sm:col-span-3">
-                    <FormInput
-                      name="reference1Relationship"
-                      label="Relationship"
-                      placeholder="Relationship"
-                      className="w-[300px] h-[45px] text-sm px-2 py-3  focus:bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:border-[#012169]"
-                    />
-                  </div>
-                  <div className="sm:col-span-3">
-                    <FormInput
-                      name="reference1NID"
-                      label="Reference 1 NID"
+                      name="nid"
+                      label="NID"
                       placeholder="NID Number"
-                      className="w-[300px] h-[45px] text-sm px-2 py-3  focus:bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:border-[#012169]"
-                    />
-                  </div>
-                  <div className="sm:col-span-3">
-                    <FormInput
-                      name="reference1Contact"
-                      label="Reference 1 Contact"
-                      placeholder="Contact Number"
                       className="w-[300px] h-[45px] text-sm px-2 py-3  focus:bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:border-[#012169]"
                     />
                   </div>
 
                   <div className="sm:col-span-3">
                     <FormInput
-                      name="reference2Name"
-                      label="Reference 2 Name"
-                      placeholder="Reference 1 Name"
+                      name="department"
+                      label="Department"
+                      placeholder="Department"
                       className="w-[300px] h-[45px] text-sm px-2 py-3  focus:bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:border-[#012169]"
                     />
                   </div>
+
                   <div className="sm:col-span-3">
                     <FormInput
-                      name="reference2Relationship"
-                      label="Relationship"
-                      placeholder="Relationship"
+                      name="designation"
+                      label="Designation"
+                      placeholder="Designation"
                       className="w-[300px] h-[45px] text-sm px-2 py-3  focus:bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:border-[#012169]"
                     />
                   </div>
+
                   <div className="sm:col-span-3">
                     <FormInput
-                      name="reference2NID"
-                      label="Reference 2 NID"
-                      placeholder="NID Number"
-                      className="w-[300px] h-[45px] text-sm px-2 py-3  focus:bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:border-[#012169]"
-                    />
-                  </div>
-                  <div className="sm:col-span-3">
-                    <FormInput
-                      name="reference2Contact"
-                      label="Reference 2 Contact"
+                      name="contactNumber"
+                      label="Contact Number"
                       placeholder="Contact Number"
+                      className="w-[300px] h-[45px] text-sm px-2 py-3  focus:bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:border-[#012169]"
+                    />
+                  </div>
+                  <div className="sm:col-span-3">
+                    <FormInput
+                      name="dateOfJoining"
+                      label="Date Of Joining"
+                      placeholder="Date Of Joining"
+                      className="w-[300px] h-[45px] text-sm px-2 py-3  focus:bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:border-[#012169]"
+                    />
+                  </div>
+
+                  <div className="sm:col-span-3">
+                    <FormInput
+                      name="Image"
+                      label="image"
+                      placeholder="image"
                       className="w-[300px] h-[45px] text-sm px-2 py-3  focus:bg-gray-100 border border-gray-200 rounded-lg focus:outline-none focus:border-[#012169]"
                     />
                   </div>
